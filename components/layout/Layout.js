@@ -1,11 +1,12 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from './Header';
+import Footer from './Footer';
+import { Container } from '@mui/material';
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <Container sx={{ height: '85vh' }}>{children}</Container>
       <Footer />
     </>
   );

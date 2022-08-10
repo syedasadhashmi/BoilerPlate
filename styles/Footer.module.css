@@ -1,0 +1,10 @@
+.footerStyle {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    /* background-color: #0288d1; */
+    color: white;
+}

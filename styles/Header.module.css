@@ -1,0 +1,12 @@
+.navLogo {
+    display: flex;
+    align-items: center;
+}
+
+.toolBarDirection {
+    justify-content: end;
+}
+
+.link:hover {
+    cursor: pointer;
+}
