@@ -1,0 +1,16 @@
+.flexBox {
+  display: flex;
+  justify-content: center;
+}
+.center {
+  text-align: center;
+}
+.topMargin {
+  margin-top: 20px;
+}
+.flexEnd {
+  justify-content: end;
+}
+.flexBetween {
+  justify-content: space-between;
+}

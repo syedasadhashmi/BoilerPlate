@@ -1,7 +1,6 @@
-import Home from './Home';
-
+import Signup from "./Signup";
 const index = () => {
-  return <Home />;
+  return <Signup />;
 };
 
 export default index;
