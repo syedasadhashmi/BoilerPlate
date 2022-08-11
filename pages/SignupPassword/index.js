@@ -21,13 +21,12 @@ const SignupPassword = () => {
   const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
 
-  const { name, email, password, DOB } = useSelector(
+  const { name, email, password, dob } = useSelector(
     (state) => state.signupReducer
   );
-  console.log(name, email, password, DOB);
+  console.log(name, email, password, dob);
   const handleSubmit = (event) => {
     event.preventDefault();
-
     dispatch(fetchPassword(userPassword));
     setIsSubmit(true);
     setUserPassword("");
