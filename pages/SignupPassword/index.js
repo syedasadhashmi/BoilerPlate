@@ -15,22 +15,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPassword } from "../../redux/signup/signupAction";
 import Link from "next/link";
 import Message from "../../components/ui/message";
+
 const SignupPassword = () => {
   const [userPassword, setUserPassword] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
   const dispatch = useDispatch();
+
   const { name, email, password, DOB } = useSelector(
     (state) => state.signupReducer
   );
-
+  console.log(name, email, password, DOB);
   const handleSubmit = (event) => {
-    const userDetails = {
-      name,
-      email,
-      user,
-    };
     event.preventDefault();
-    setUserPassword("");
+
     dispatch(fetchPassword(userPassword));
+    setIsSubmit(true);
+    setUserPassword("");
+    setTimeout(() => {
+      setIsSubmit(false);
+    }, 1000);
   };
   const nameHandler = (event) => {
     setUserPassword(event.target.value);
@@ -73,6 +76,7 @@ const SignupPassword = () => {
             </Button>
           </CardActions>
         </Card>
+        {isSubmit && <Message />}
       </form>
     </Container>
   );

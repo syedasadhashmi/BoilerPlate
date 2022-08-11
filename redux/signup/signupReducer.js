@@ -1,3 +1,4 @@
+import { CallToActionRounded } from "@mui/icons-material";
 import {
   FETCH_EMAIL,
   FETCH_NAME,
@@ -15,6 +16,7 @@ const initialState = {
 const signupReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_NAME:
+      localStorage.setItem("name", action.payload);
       return {
         ...state,
         name: action.payload,
@@ -25,6 +27,7 @@ const signupReducer = (state = initialState, action) => {
         email: action.payload,
       };
     case FETCH_PASSWORD:
+      debugger;
       return {
         ...state,
         password: action.payload,

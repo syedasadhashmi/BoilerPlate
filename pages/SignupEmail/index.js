@@ -14,14 +14,19 @@ import classes from "../../styles/SignUp.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEmail } from "../../redux/signup/signupAction";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 const SignupEmail = () => {
   const [userEmail, setUserEmail] = useState("");
   const dispatch = useDispatch();
+  const router = useRouter();
   const { email } = useSelector((state) => state.signupReducer);
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUserEmail("");
+
     dispatch(fetchEmail(userEmail));
+    router.push("../SignupDOB");
+    setUserEmail("");
   };
   const nameHandler = (event) => {
     setUserEmail(event.target.value);
@@ -58,11 +63,10 @@ const SignupEmail = () => {
                 Back
               </Button>
             </Link>
-            <Link href={"../SignupDOB"}>
-              <Button size="small" variant="outlined" type="submit">
-                Next
-              </Button>
-            </Link>
+
+            <Button size="small" variant="outlined" type="submit">
+              Next
+            </Button>
           </CardActions>
         </Card>
       </form>

@@ -12,14 +12,12 @@ export const fetchName = (name) => {
   };
 };
 export const fetchEmail = (email) => {
-  debugger;
   return {
     type: FETCH_EMAIL,
     payload: email,
   };
 };
 export const fetchPassword = (password) => {
-  debugger;
   return {
     type: FETCH_PASSWORD,
     payload: password,

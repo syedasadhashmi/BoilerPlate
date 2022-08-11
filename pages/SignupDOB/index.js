@@ -14,14 +14,18 @@ import classes from "../../styles/SignUp.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDOB } from "../../redux/signup/signupAction";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 const SignupDOB = () => {
   const [userDOB, setUserDOB] = useState("");
   const dispatch = useDispatch();
   const { DOB } = useSelector((state) => state.signupReducer);
+  const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUserDOB("");
     dispatch(fetchDOB(userDOB));
+    router.push("../SignupPassword");
+    setUserDOB("");
   };
   const nameHandler = (event) => {
     setUserDOB(event.target.value);
@@ -57,11 +61,10 @@ const SignupDOB = () => {
                 Back
               </Button>
             </Link>
-            <Link href={"../SignupPassword"}>
-              <Button size="small" variant="outlined" type="submit">
-                Next
-              </Button>
-            </Link>
+
+            <Button size="small" variant="outlined" type="submit">
+              Next
+            </Button>
           </CardActions>
         </Card>
       </form>

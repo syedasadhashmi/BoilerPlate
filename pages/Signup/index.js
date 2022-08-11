@@ -13,15 +13,18 @@ import {
 import classes from "../../styles/SignUp.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchName } from "../../redux/signup/signupAction";
-import Link from "next/link";
+import { useRouter } from "next/router";
 const Signup = () => {
   const [userName, setUserName] = useState("");
   const dispatch = useDispatch();
+  const router = useRouter();
+
   const { name } = useSelector((state) => state.signupReducer);
   const handleSubmit = (event) => {
     event.preventDefault();
-    setUserName("");
     dispatch(fetchName(userName));
+    router.push("../SignupEmail");
+    setUserName("");
   };
   const nameHandler = (event) => {
     setUserName(event.target.value);
@@ -52,11 +55,9 @@ const Signup = () => {
             </Typography>
           </CardContent>
           <CardActions className={classes.flexEnd}>
-            <Link href={"../SignupEmail"}>
-              <Button size="small" variant="outlined" type="submit">
-                Next
-              </Button>
-            </Link>
+            <Button size="small" variant="outlined" type="submit">
+              Next
+            </Button>
           </CardActions>
         </Card>
       </form>
