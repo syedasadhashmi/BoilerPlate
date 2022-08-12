@@ -1,7 +1,12 @@
-import { FETCH_USERS_ERROR, FETCH_USERS_SUCCESS } from './usersTypes';
+import {
+  FETCH_USERS_ERROR,
+  FETCH_USERS_SUCCESS,
+  FETCH_SECOND_URL,
+} from "./usersTypes";
 const initialState = {
   users: [],
-  error: '',
+  error: "",
+  secondUrlData: [],
 };
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,6 +18,10 @@ const usersReducer = (state = initialState, action) => {
       return {
         users: [],
         error: action.payload,
+      };
+    case FETCH_SECOND_URL:
+      return {
+        secondUrlData: action.payload,
       };
     default:
       return {

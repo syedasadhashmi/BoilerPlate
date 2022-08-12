@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 import {
   AppBar,
   Toolbar,
@@ -9,26 +9,25 @@ import {
   Menu,
   MenuItem,
   Button,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import styles from '../../styles/Header.module.css';
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import styles from "../../styles/Header.module.css";
 const pages = [
   {
-    title: 'Home',
-    link: '../Home/',
+    title: "Home",
+    link: "../Home/",
   },
   {
-    title: 'Orders',
-    link: '../Orders/',
+    title: "Orders",
+    link: "../Orders/",
   },
   {
-    title: 'Users',
-    link: '../Users/',
+    title: "Users",
+    link: "../Users/",
   },
   {
-    title: 'Restaurants',
-    link: '../Restaurants/',
+    title: "Restaurants",
+    link: "../Restaurants/",
   },
 ];
 const Header = () => {
@@ -42,12 +41,11 @@ const Header = () => {
     setAnchorElNav(null);
   };
   const logoutHandler = () => {
-    localStorage.removeItem('tokenDetails');
+    localStorage.removeItem("tokenDetails");
   };
   return (
     <AppBar position="static">
       <Toolbar className={styles.toolBarDirection}>
-        <FastfoodIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
         <Link href="../Home">
           <Typography
             className={styles.link}
@@ -56,106 +54,18 @@ const Header = () => {
             component="a"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: "flex",
+              justifyContent: "center",
               flexGrow: 1,
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            FooPanda
+            HN JOBS
           </Typography>
         </Link>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'left',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left',
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{
-              display: { xs: 'block', md: 'none' },
-            }}
-          >
-            {pages.map((page) => (
-              <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">
-                  <Link href={page.link}>{page.title}</Link>
-                </Typography>
-              </MenuItem>
-            ))}
-            <MenuItem key="logout" onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">
-                <Link href="../Login">
-                  <span onClick={logoutHandler}>Logout</span>
-                </Link>
-              </Typography>
-            </MenuItem>
-          </Menu>
-        </Box>
-
-        <FastfoodIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-        <Link href="../Home">
-          <Typography
-            className={styles.link}
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            FooPanda
-          </Typography>
-        </Link>
-        <Box
-          sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
-          className={styles.toolBarDirection}
-        >
-          {pages.map((page) => (
-            <Button
-              key={page.title}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              <Link href={page.link}>{page.title}</Link>
-            </Button>
-          ))}
-          <Button
-            key="logout"
-            onClick={handleCloseNavMenu}
-            sx={{ my: 2, color: 'white', display: 'block' }}
-          >
-            <Link href="../Login">
-              <span onClick={logoutHandler}>Logout</span>
-            </Link>
-          </Button>
-        </Box>
       </Toolbar>
     </AppBar>
   );
