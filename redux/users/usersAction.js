@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   FETCH_USERS_ERROR,
   FETCH_USERS_SUCCESS,
   FETCH_SECOND_URL,
-} from "./usersTypes";
-import { apiUrl } from "../../utils/constant";
+} from './usersTypes';
+import { apiUrl } from '../../utils/constant';
 export const fetchUsers = () => {
   return async (dispatch) => {
     axios
