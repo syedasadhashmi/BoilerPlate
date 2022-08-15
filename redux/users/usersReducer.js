@@ -2,10 +2,10 @@ import {
   FETCH_USERS_ERROR,
   FETCH_USERS_SUCCESS,
   FETCH_SECOND_URL,
-} from './usersTypes';
+} from "./usersTypes";
 const initialState = {
   users: [],
-  error: '',
+  error: "",
   secondUrlData: [],
 };
 const usersReducer = (state = initialState, action) => {
