@@ -1,0 +1,9 @@
+.cardStyle {
+  transform: translateY(10px);
+  transition: 0.4s;
+}
+.cardStyle:hover {
+  transform: translateY(-10px);
+  transition: 0.4s;
+  cursor: pointer;
+}

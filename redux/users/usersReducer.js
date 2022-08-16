@@ -22,6 +22,7 @@ const usersReducer = (state = initialState, action) => {
         error: action.payload,
       };
     case FETCH_SECOND_URL:
+      // const temp = state.secondUrlData.push(action.payload);
       return {
         ...state,
         secondUrlData: action.payload,
