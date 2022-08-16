@@ -1,6 +1,5 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import axios from "axios";
-import Button from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/layout/Layout";
@@ -21,7 +20,7 @@ const Home = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    const num = users.slice(0, 9);
+    const num = users.slice(startNum, endNum);
     const singleNews = num.map((id) => {
       const promise = new Promise((resolve, reject) => {
         axios
@@ -39,19 +38,35 @@ const Home = () => {
     Promise.all(singleNews)
       .then((status) => {
         console.log("status", status);
-        // setNews(status);
-        dispatch(fetchSecondUrlData(status));
+        setNews([...news, ...status]);
+        // dispatch(fetchSecondUrlData(status));
       })
       .catch((err) => {
         console.log("err", err);
       });
-  }, [users]);
+  }, [users, startNum, endNum]);
   console.log(news);
   console.log(secondUrlData);
-
+  const moreNewsHandler = () => {
+    let tempEnd = endNum;
+    setEndNum(tempEnd + 6);
+    setStartNum(tempEnd);
+  };
   return (
     <Layout>
-      <CardTemp props={secondUrlData} />
+      <CardTemp props={news} />
+      <Typography
+        variant="div"
+        component="div"
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "15px",
+        }}
+      >
+        <Button variant="outlined">Load More</Button>
+      </Typography>
     </Layout>
   );
 };
