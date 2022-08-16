@@ -65,7 +65,9 @@ const Home = () => {
           marginTop: "15px",
         }}
       >
-        <Button variant="outlined">Load More</Button>
+        <Button variant="outlined" onClick={moreNewsHandler}>
+          Load More
+        </Button>
       </Typography>
     </Layout>
   );
