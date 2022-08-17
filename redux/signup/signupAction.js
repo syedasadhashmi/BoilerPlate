@@ -3,6 +3,7 @@ import {
   FETCH_NAME,
   FETCH_DOB,
   FETCH_PASSWORD,
+  FETCH_JOB_ROLE,
 } from "./signupTypes";
 
 export const fetchName = (name) => {
@@ -28,5 +29,11 @@ export const fetchDOB = (DOB) => {
   return {
     type: FETCH_DOB,
     payload: DOB,
+  };
+};
+export const fetchJobRole = (jobRole) => {
+  return {
+    type: FETCH_JOB_ROLE,
+    payload: jobRole,
   };
 };

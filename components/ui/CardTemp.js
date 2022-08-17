@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
-import { flexbox } from "@mui/system";
 import classes from "../../styles/CardTemp.module.css";
+import StarIcon from "@mui/icons-material/Star";
 // import { height } from "@mui/system";
 const CardTemp = ({ props }) => {
-  console.log("cardItem", props);
+  const jobRoleLS =
+    typeof window !== "undefined" ? localStorage.getItem("jobRole") : null;
+  console.log(jobRoleLS);
   return (
     <Grid container spacing={4}>
       {props.map((nid) => (
@@ -23,6 +25,13 @@ const CardTemp = ({ props }) => {
                 boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
               }}
             >
+              {nid.title.includes(jobRoleLS) && (
+                <StarIcon
+                  sx={{ color: "orange" }}
+                  className={classes.cardStarIcon}
+                />
+              )}
+
               <CardContent
                 sx={{
                   height: "100%",
@@ -46,7 +55,7 @@ const CardTemp = ({ props }) => {
                   {nid.title.split(")")[1]}
                 </Typography>
                 <Typography variant="body2" sx={{ textAlign: "center" }}>
-                  {Date(nid.time * 1000).toLocaleString()}
+                  {Date(nid.time * 1000)}
                 </Typography>
               </CardContent>
               {/* <CardActions>

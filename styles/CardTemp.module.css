@@ -1,9 +1,15 @@
 .cardStyle {
   transform: translateY(5px);
   transition: 0.4s;
+  position: relative;
 }
 .cardStyle:hover {
   transform: translateY(-5px);
   transition: 0.4s;
   cursor: pointer;
+}
+.cardStarIcon {
+  position: absolute;
+  right: 0;
+  font-size: 45px;
 }

@@ -15,16 +15,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPassword } from "../../redux/signup/signupAction";
 import Link from "next/link";
 import Message from "../../components/ui/message";
+import { useRouter } from "next/router";
 
 const SignupPassword = () => {
   const [userPassword, setUserPassword] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
+  const router = useRouter();
+
   const dispatch = useDispatch();
 
-  const { name, email, password, dob } = useSelector(
+  const { name, email, password, dob, jobRole } = useSelector(
     (state) => state.signupReducer
   );
-  console.log(name, email, password, dob);
+  console.log(name, email, password, dob, jobRole);
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(fetchPassword(userPassword));
@@ -32,6 +35,7 @@ const SignupPassword = () => {
     setUserPassword("");
     setTimeout(() => {
       setIsSubmit(false);
+      router.push("../Home");
     }, 1000);
   };
   const nameHandler = (event) => {

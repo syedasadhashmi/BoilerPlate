@@ -12,25 +12,24 @@ import {
 } from "@mui/material";
 import classes from "../../styles/SignUp.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDOB } from "../../redux/signup/signupAction";
+import { fetchJobRole } from "../../redux/signup/signupAction";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const SignupDOB = () => {
-  const [userDOB, setUserDOB] = useState("");
+const JobRole = () => {
+  const [userJobRole, setUserJobRole] = useState("");
   const dispatch = useDispatch();
-  const { DOB } = useSelector((state) => state.signupReducer);
+  const { jobRole } = useSelector((state) => state.signupReducer);
   const router = useRouter();
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(fetchDOB(userDOB));
-    router.push("../JobRole");
-    setUserDOB("");
+    dispatch(fetchJobRole(userJobRole));
+    router.push("../SignupPassword");
+    setUserJobRole("");
   };
   const nameHandler = (event) => {
-    setUserDOB(event.target.value);
+    setUserJobRole(event.target.value);
   };
-
+  console.log(jobRole);
   return (
     <Container className={classes.flexBox}>
       <form onSubmit={handleSubmit}>
@@ -48,20 +47,19 @@ const SignupDOB = () => {
               <TextField
                 required
                 id="outlined-required"
-                type="date"
-                value={userDOB}
+                type="text"
+                value={userJobRole}
                 onChange={nameHandler}
                 fullWidth
               />
             </Typography>
           </CardContent>
           <CardActions className={classes.flexBetween}>
-            <Link href={"../SignupEmail"}>
+            <Link href={"../SignupDOB"}>
               <Button size="small" variant="outlined">
                 Back
               </Button>
             </Link>
-
             <Button size="small" variant="outlined" type="submit">
               Next
             </Button>
@@ -72,4 +70,4 @@ const SignupDOB = () => {
   );
 };
 
-export default SignupDOB;
+export default JobRole;
