@@ -1,6 +1,6 @@
 .flexBox {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
 }
 .center {
   text-align: center;
