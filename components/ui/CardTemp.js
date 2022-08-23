@@ -16,7 +16,7 @@ const CardTemp = ({ props }) => {
     <Grid container spacing={4}>
       {props.map((nid) => (
         <Grid item md={4} xs={12} sm={6} key={nid.id}>
-          <a href={nid.url} target="_blank">
+          <a href={nid.url} target="_blank" rel="noopener noreferrer">
             <Card
               className={classes.cardStyle}
               sx={{

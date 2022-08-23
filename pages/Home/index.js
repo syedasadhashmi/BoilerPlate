@@ -4,15 +4,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/layout/Layout";
 import CardTemp from "../../components/ui/CardTemp";
-import { fetchUsers, fetchSecondUrlData } from "../../redux/users/usersAction";
+import { fetchUsers } from "../../redux/users/usersAction";
 import { apiUrl2 } from "../../utils/constant";
 const Home = () => {
   const dispatch = useDispatch();
-  const { users, secondUrlData } = useSelector((state) => state.usersReducer);
+  const { users } = useSelector((state) => state.usersReducer);
   const [news, setNews] = useState([]);
   let [startNum, setStartNum] = useState(0);
   let [endNum, setEndNum] = useState(9);
-
   console.log(users);
   // console.log(num);
   useEffect(() => {
@@ -39,14 +38,12 @@ const Home = () => {
       .then((status) => {
         console.log("status", status);
         setNews([...news, ...status]);
-        // dispatch(fetchSecondUrlData(status));
       })
       .catch((err) => {
         console.log("err", err);
       });
   }, [users, startNum, endNum]);
   console.log(news);
-  console.log(secondUrlData);
   const moreNewsHandler = () => {
     let tempEnd = endNum;
     setEndNum(tempEnd + 6);

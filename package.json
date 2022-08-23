@@ -26,7 +26,10 @@
   },
   "devDependencies": {
     "@redux-devtools/core": "^3.13.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
     "eslint": "8.21.0",
-    "eslint-config-next": "12.2.4"
+    "eslint-config-next": "12.2.4",
+    "jest": "^28.1.3"
   }
 }
