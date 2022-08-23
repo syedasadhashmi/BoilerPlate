@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   Divider,
   Card,
@@ -14,7 +13,7 @@ import classes from "../../styles/SignUp.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPassword } from "../../redux/signup/signupAction";
 import Link from "next/link";
-import Message from "../../components/ui/message";
+import Message from "../../components/ui/Message";
 import { useRouter } from "next/router";
 
 const SignupPassword = () => {
