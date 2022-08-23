@@ -14,3 +14,7 @@
 .flexBetween {
   justify-content: space-between;
 }
+.formFlex {
+  display: flex;
+  justify-content: center;
+}
