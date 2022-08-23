@@ -33,7 +33,7 @@ const SignupDOB = () => {
 
   return (
     <Container className={classes.flexBox}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={classes.formFlex}>
         <Card sx={{ width: 500 }}>
           <CardContent>
             <Typography variant="h5" component="h5" className={classes.center}>
